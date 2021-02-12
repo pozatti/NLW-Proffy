@@ -25,9 +25,20 @@ function TeacherList() {
                 time
             }
         })
-
+        console.log(response.data);
         setTeachers(response.data);
     }
+
+    async function listAllTeachers() {
+        const response = await api.get('allClasses');
+
+        console.log(response.data);
+        setTeachers(response.data);
+    }
+
+    useEffect(() => {
+        listAllTeachers();
+    }, [])
 
     return (
         <div id="page-teacher-list" className="container">
